@@ -1,0 +1,448 @@
+body {
+    margin: 0;
+    font-family: 'Inconsolata', monospace;
+    font-family: 'Playfair Display', serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    /*межстрочный отступ*/
+    line-height: 1.6;
+    color: rgb(0, 0, 0);
+}
+/*Для всех до и после*/
+*,
+*:before
+*:after {
+    /*border-box говорит браузеру учитывать любые границы и внутренние отступы
+     в значениях, которые вы указываете в ширине и высоте элемента. 
+     Если вы выставите элементу ширину 100 пикселей, то эти 100 пикселей будут включать в себя 
+     границы и внутренние отступы, а контент сожмётся, чтобы выделить для них место. 
+    Обычно это упрощает работу с размерами элементов.*/
+    box-sizing: border-box;
+}
+h1, h2 ,h3, h4, h5, h6 {
+    margin: 0;
+}
+/* CONTAINER */
+.container {
+    width: 100%;
+    max-width: 1090px;
+    /*автоматически выравниваеться по центру*/
+    margin: 0 auto;
+    padding: 0 15px;
+}
+/* INTRO */
+.intro {
+    /*ВКЛЮЧАЕТ флекс и направляет действие в колонки+*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    /* 100 % экрана посетителя */
+    height: 100vh;
+    background: url("../images/intro.jpg") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    
+
+
+}
+.intro__inner{
+    width: 100%;
+    max-width: 700px;
+    margin: 0 left;
+}
+.intro__title{
+    font-size: 85px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
+    color: rgb(66, 66, 66) ;
+    margin-top: 45px;
+    margin-left: 45px;
+    line-height: 1.1;
+}
+/*полоска после текста*/
+.intro__title::after{
+    content: "";
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: rgb(65, 65, 65);
+    margin: 10px 80px 17px;
+}
+/*HEADER*/
+.header{
+    padding-top: 30px;
+    /*аболютно позиционирует элемент на странице,
+     другие элементы позиционируються так, будто его нет*/
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    /*накладывание, чем выше значение, тем выше будет находиться объект*/
+z-index: 1000;
+} 
+.header__logo{
+    font-size: 40px;
+    font-weight: 700;
+    color: black;
+    margin-left: 30px;
+}
+/* NAV */
+.nav{
+font-size: 14px;
+
+}
+.nav-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;}
+.header__inner{
+    display: flex;
+    /*как браузер розпределяет пространство,
+    один элемент с одноц стороны, а другой с второй*/
+    justify-content: space-between;
+    /*выравнивание вдоль поперечноц оси*/
+    align-items: center;
+}
+.nav__link{
+    /*Элементы inline-block обладают характеристиками 
+    как блочных, так и строчных элементов.*/
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px;
+    position: relative;
+
+    /*делает все в строку*/
+    display: inline-block;
+    /*выравниванет элемент к верху*/
+    vertical-align: top;
+    margin: 0 40px;
+
+    color: rgb(116, 116, 116);
+    text-decoration: none;
+    /*плавная смена цвета*/
+    transition: color .15s linear;
+
+}
+/*подчеркивающая линия*/
+/*работает так, что сначала невидима(opacity) а помом транзишн и видима*/
+.nav__link::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    opacity: 0;
+    background-color: rgb(66, 66, 66);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    transition: opacity .15s linear;
+}
+.nav__link:hover{
+color: black;
+
+}
+.nav__link:hover:after {
+opacity: 1;
+}
+
+/* BUTTON */
+.btn{
+    display: inline-block;
+    vertical-align: top;
+    /*внутри єлемента задает отступы*/
+    padding: 5px 25px;
+/*solid сплошной цвет*/
+    border: 3px solid rgb(100, 100, 100);
+    margin-left: 90px;
+    
+
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(100, 100, 100);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .1s linear, color .1s linear;
+
+}
+.btn:hover {
+background-color: rgba(90, 90, 90, 0.199);
+color: rgb(34, 34, 34);
+}
+
+
+/*SECTION*/
+.section{
+    font-family: 'Playfair Display', serif;
+    padding: 80px 0;
+
+
+}
+.section__header{
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto 40px;
+
+
+}
+
+
+.section__subtitle{
+ text-decoration: none;
+ font-size: 15px;
+ font-weight: 600;
+ color: rgba(90, 90, 90, 0.801);
+}
+
+.section__title{
+    font-size: 30px;
+    font-weight: 500;
+    color: black;
+}
+
+.section__text{
+    font-size: 15px;
+    font-weight: 500;
+
+}
+
+.section__subtitle2{
+    text-decoration: none;
+    font-style: 15px;
+    font-weight: 600;
+    color: rgba(90, 90, 90, 0.801);
+    margin-bottom: 40px;
+}
+
+/*ABOUT*/
+.about{
+    display: flex;
+    justify-content: space-between;
+}
+
+.about__item{
+    width: 416px;
+    height: 279px;
+    margin-top: 40px;
+    background-color: rgba(128, 128, 128, 0.699);
+    position: relative;
+}
+
+.about__image{
+    background: linear-gradient(to bottom,white ,rgb(0, 0, 0) );
+    transition: transform .1s linear;
+}
+.about__item:hover .about__image{
+    transform: translate3d(-7px, -7px, 0 );
+}
+
+.about__item:hover .about__image img{
+    opacity: 0.6;
+}
+
+.about__item:hover .about__text {
+    opacity: 1;
+}
+
+.about__image img{
+    display: block;
+    transition: opacity .1s linear;
+}
+.about__text{
+    width: 100%;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-style: 15px;
+    text-align: center;
+    opacity: 0; 
+    font-size: 45px;
+    font-weight: 600;
+    font-family: 'Inconsolata', monospace;
+
+
+    position: absolute;
+top: 50%;
+left: 0;
+z-index: 2;
+transform: translate3d(0, -50%, 0);
+
+transition: opacity .2s linear;
+} 
+
+/*STATISTIC*/
+.statistic{
+background-color: rgb(153, 153, 153) ;
+}
+
+.stat{
+    display: flex;
+}
+.stat__item{
+    flex: 1 1 0;
+    border-left: 4px solid rgb(212, 212, 212);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding: 30px 20px;
+
+}
+
+.stat__item:last-child
+{
+    border-right: 4px solid rgb(212, 212, 212);
+}
+
+.stat__count{
+    font-size: 75px;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.stat__text{
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+
+}
+
+.section__header1{
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.section__subtitle1{
+    text-decoration: none;
+ font-size: 15px;
+ font-weight: 600;
+ color: rgba(90, 90, 90, 0.801);
+ 
+
+}
+
+.section__title1{
+    font-size: 30px;
+    font-weight: 500;
+    color: black;
+    
+}
+
+.section__text1{
+    margin: 30px 30px 30px;
+    line-height: 2.1;
+}
+
+/*WE DO*/
+.wedo{
+    display: flex;
+}
+
+.wedo__item{
+    width: 50%;
+}
+
+/*accordion*/
+.accordion__item{
+    border: 1px solid #e5e5e5;
+    margin-bottom: 6px;
+}
+.accordion__item.active
+.accordion__content{
+    display: block;
+}
+
+.accordion__item.active
+.accordion__header{
+    border-bottom: 1px solid #e5e5e5;
+}
+.accordion__header{
+    border-bottom: 1px solid transparent;
+    padding: 15px 20px 15px 30px;
+    position: relative;
+    cursor: pointer;
+}
+.accordion__item.active
+.accordion__header::after{
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+
+.accordion__header::after{
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+
+    border-top: 3px solid #ccc;
+    border-right: 3px solid #ccc;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    z-index: 1;
+    transform: translateY(-50%) rotate(135deg);
+}
+
+.accordion__icon{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}
+
+.accordion__content{
+    padding: 15px;
+        display: none;
+    font-size: 15px;
+    color: #999;
+    font-weight: 300;
+}
+
+.accordion__title{
+    font-size: 14px;
+    color:#333;
+    text-transform: uppercase;
+}
+
+.footer{
+    padding-top: 50px;
+    background-color: rgb(155, 155, 155);
+padding-top: 60px;
+}
+
+.author{
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: #000;
+}
+
+
+@media (max-width: 1090px){
+    .intro__title{
+        font-size: 80px;
+    }
+
+}
+
+@media (max-width: 800px){
+    .intro__title{
+        font-style: 50px;
+    }
+    .nav{
+        display: none;
+    }
+}
+
+@media (max-width: 650px){
+    .intro__title{
+        font-style: 30px;
+    }
+}
